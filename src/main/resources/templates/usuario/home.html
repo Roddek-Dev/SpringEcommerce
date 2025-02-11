@@ -10,7 +10,10 @@
 	<div th:insert="~{usuario/template_user.html::header}" th:if="${sesion == null}"></div>
 	<div th:insert="~{usuario/template_user.html::usuarioCabecera}" th:unless="${sesion == null}"></div>
 
-	<section><!--Buscador--> </section>
+	<section>
+		<br>
+		<div class="container" th:insert="~{usuario/template_user.html::search}"></div>
+	</section>
 
 	<main class="main">
 		<div class="container">

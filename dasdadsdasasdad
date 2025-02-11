@@ -1,0 +1,65 @@
+[33mcommit f9f3f06fd18581492634a8bfb8823c934598673c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Tue Nov 26 14:48:30 2024 -0500
+
+    v0.11_vistaResumenOrdenMetodosHomeUserControllerGetCartOrder&SaveOrder_26112024_jataba
+
+[33mcommit 7f1db2463308d4823269a06ff490f070ed68c7b5[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Thu Nov 21 14:24:22 2024 -0500
+
+    v0.10_VistaCarritoDeComprasMetodosAñadirQuitarVacio_21112024_jataba
+
+[33mcommit 24a92c7ab8eeeb9eb59265f95b921d68759fad8f[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Tue Nov 19 14:57:34 2024 -0500
+
+    v0.9_Vista ProductoHomeMetodoProductoHomeEnHomeUserController_19112024_jataba
+
+[33mcommit 2131ba0bc22873d9ed120ca41b25927ce70a488f[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Tue Nov 19 13:16:28 2024 -0500
+
+    v0.8_VistasShowProductosFolderUsuario&HomeUserController_19112024_jataba
+
+[33mcommit f9142b6225c172a5e9f96975c534936026cdb833[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Fri Nov 15 13:27:40 2024 -0500
+
+    v0.7_croodDeProductos_151125_jataba
+
+[33mcommit 9155bfe7c46b6f609613f06764ca995f354e202c[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Tue Oct 22 14:17:04 2024 -0500
+
+    v06_creacionDeClasesDeTipoImplementPaqueteService_22102024_jataba
+
+[33mcommit 254d9e0d27a9a204c5b9447b1c1c62a1d080c890[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Fri Oct 18 14:32:53 2024 -0500
+
+    v0.5_creacionInterfacesPaqueteService_18102024_jataba
+
+[33mcommit 2ea5f8b9449c90aa0fe0921ecc4a0b7d52d14d77[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Fri Oct 18 13:56:41 2024 -0500
+
+    v0.4_creacionInterfacesPaqueteRepository_18102024
+
+[33mcommit 411b5bd854275242cbf8d22766d2635099701181[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Fri Oct 18 13:04:34 2024 -0500
+
+    v0.3_vistaAdmin_vistaTemplateAdmin_html_administradorController_18_102024
+
+[33mcommit a1354b1c3c4f14f68f5b8c8283d9f876e75a6c23[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Fri Oct 11 15:42:35 2024 -0500
+
+    v0.2_seAñadenAssets&indexAdminAndUser_configAplication.propertiesConexionDb_11102024
+
+[33mcommit 1a0965661de34936dab39a871c95e747e448fd60[m
+Author: jataba <javier_tabares@soy.sena.edu.co>
+Date:   Thu Oct 10 13:37:38 2024 -0500
+
+    v0.1_creacionDeClasesPaqueteModelo_10102024
