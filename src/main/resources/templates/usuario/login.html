@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmls:th="http://thymeLeaf.org">
+
+<head th:insert="~{usuario/template_user.html::head}">
+
+</head>
+
+<body class="index-page">
+
+	<div th:insert="~{usuario/template_user.html::header}" th:if="${sesion == null}"></div>
+	<div th:insert="~{usuario/template_user.html::usuarioCabecera}" th:unless="${sesion == null}"></div>
+
+
+
+	<main class="main">
+		<div class="container">
+			<header class="jumbotron my-4">
+				<h1 class="display-3">Inicio de sesion</h1>
+			</header>
+
+			<form th:action="@{/usuario/acceder}" method="post">
+				<div class="form-group">
+					<label for="email">Correo Electronico:</label>
+					<input type="email" class="form-control" id="email" name="email" required
+						placeholder="Ingrese su correo electronico" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label for="password">Contraseña:</label>
+					<input type="password" class="form-control" id="password" name="password" required
+						placeholder="Ingrese su contraseña" autocomplete="off">
+				</div>
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-success">Ingresar</button>
+				</div>
+			</form>
+			<p>Si aun no tienes cuenta con nosotros, <a th:href="@{/usuario/registro}" class="card-link">registrese
+					aqui</a></p>
+
+
+		</div>
+	</main>
+
+
+	<div th:insert="~{usuario/template_user.html::footer}"></div>
+
+	<!-- Scroll Top -->
+	<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+			class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Preloader -->
+	<div id="preloader"></div>
+
+	<div th:insert="~{usuario/template_user.html::jsFiles}"></div>
+
+</body>
+
+</html>

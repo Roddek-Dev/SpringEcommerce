@@ -2,7 +2,6 @@ package com.sena.ecommerce.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -26,6 +25,8 @@ import com.sena.ecommerce.service.IDetalleOrdenService;
 import com.sena.ecommerce.service.IOrdenService;
 import com.sena.ecommerce.service.IProductoService;
 import com.sena.ecommerce.service.IUsuarioService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/") // la raiz del proyecto
@@ -56,8 +57,11 @@ public class HomeUserController {
 
 	// Metodo que mapea la vista de usuario en la raiz del proyecto
 	@GetMapping("")
-	public String home(Model model) {
+	public String home(Model model, HttpSession session) {
+		LOGGER.info("Sesion de usuario: {}", session.getAttribute("idUsuario"));
 		model.addAttribute("productos", productoService.findAll());
+		// variable de sesion
+		model.addAttribute("sesion", session);
 		return "usuario/home";
 	}
 
@@ -147,8 +151,8 @@ public class HomeUserController {
 
 	// Este es el metodo para pasar a la vista del resumen de la orden
 	@GetMapping("/order")
-	public String order(Model model) {
-		Usuario u = usuarioService.findById(1).get();
+	public String order(Model model, HttpSession session) {
+		Usuario u = usuarioService.findById(Integer.parseInt(session.getAttribute("idUsuario").toString())).get();
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", orden);
 		model.addAttribute("usuario", u);
@@ -156,13 +160,13 @@ public class HomeUserController {
 	}
 
 	@GetMapping("/saveOrder")
-	public String saveOrder() {
+	public String saveOrder(HttpSession session) {
 		// Guardar orden
 		Date fechaCreacion = new Date();
 		orden.setFechacreacion(fechaCreacion);
 		orden.setNumero(ordenService.generarNumeroOrden());
 		// Usuario que se referenci en esa compra previamente logeado
-		Usuario u = usuarioService.findById(1).get();
+		Usuario u = usuarioService.findById(Integer.parseInt(session.getAttribute("idUsuario").toString())).get();
 		orden.setUsuario(u);
 		ordenService.save(orden);
 		// Guardar detalles de la orden

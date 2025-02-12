@@ -23,6 +23,8 @@ import com.sena.ecommerce.service.IProductoService;
 import com.sena.ecommerce.service.IUsuarioService;
 import com.sena.ecommerce.service.UploadFileService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/productos")
 public class ProductoController {
@@ -55,9 +57,9 @@ public class ProductoController {
 
 	// metodo de creacion de productos
 	@PostMapping("/save")
-	public String save(Producto producto, @RequestParam("img") MultipartFile file) throws IOException {
+	public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {
 		LOGGER.info("Este es el objeto del producto a guardar en la DB {}", producto);
-		Usuario u = new Usuario(1, "", "", "", "", "", "", "");
+		Usuario u = usuarioService.findById(Integer.parseInt(session.getAttribute("idUsuario").toString())).get();
 		producto.setUsuario(u);
 		// Validacion imagen de producto
 		if (producto.getId() == null) {
