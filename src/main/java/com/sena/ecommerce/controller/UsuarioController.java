@@ -1,5 +1,6 @@
 package com.sena.ecommerce.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sena.ecommerce.model.Orden;
 import com.sena.ecommerce.model.Usuario;
+import com.sena.ecommerce.service.IOrdenService;
 import com.sena.ecommerce.service.IUsuarioService;
 
 import jakarta.servlet.http.HttpSession;
@@ -24,6 +27,9 @@ public class UsuarioController {
 
 	@Autowired
 	private IUsuarioService usuarioService;
+
+	@Autowired
+	private IOrdenService ordenService;
 
 	@GetMapping("/registro")
 	public String createuser() {
@@ -53,6 +59,7 @@ public class UsuarioController {
 			if (userEmail.get().getTipo().equals("ADMIN")) {
 				return "redirect:/administrador";
 			} else {
+				return "redirect:/";
 			}
 		} else {
 			LOGGER.info("Usuario no existe en la DB");
@@ -64,5 +71,15 @@ public class UsuarioController {
 	public String cerrarSesion(HttpSession session) {
 		session.removeAttribute("idUsuario");
 		return "redirect:/";
+	}
+
+	// Metodo para redirigir a la vista de compras de 1 usuario
+	@GetMapping("/compras")
+	public String compras(HttpSession session, Model model) {
+		model.addAttribute("sesion", session.getAttribute("idUsuario"));
+		Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idUsuario").toString())).get();
+		List<Orden> ordenes = ordenService.findByUsuario(usuario);
+		model.addAttribute("ordenes", ordenes);
+		return "usuario/compras";
 	}
 }

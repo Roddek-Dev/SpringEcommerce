@@ -44,8 +44,9 @@ public class ProductoController {
 
 	// Metodo para redirigir a la vista show en el templete de productos
 	@GetMapping("")
-	public String show(Model model) {
+	public String show(Model model, HttpSession session) {
 		model.addAttribute("productos", productoService.findAll());
+		model.addAttribute("sesion", session.getAttribute("idUsuario"));
 		return "productos/show";
 	}
 
